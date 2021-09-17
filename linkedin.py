@@ -123,7 +123,7 @@ def extractData():
             pass
         else:
             testKeyword = driver.find_element_by_xpath("//h1[@class='t-16 truncate']").text
-            searchKeyword = ','.join(testKeyword.split(' ')[:1]).strip()
+            searchKeyword = ' '.join(testKeyword.split(' ')[:2])
             datadf = pd.DataFrame(data, columns=['companyName', 'Position', 'Location', 'detailsLink'])
             datadf.to_csv(os.path.join(rawdata, 'linkedin'+searchKeyword+'.csv'), index=False)  
             if len(datadf) == 0:
